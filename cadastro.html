@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cadastre-se como voluntário da ONG Esperança e faça parte da transformação social">
+    <meta name="keywords" content="cadastro, voluntário, ONG Esperança, formulário">
+    <meta name="author" content="ONG Esperança">
+    <title>Cadastro - ONG Esperança</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <img src="assets/images/logo.png" alt="Logo ONG Esperança" class="nav__logo">
+                <h1 class="nav__title">ONG Esperança</h1>
+            </div>
+            <ul class="nav__menu">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">Início</a>
+                </li>
+                <li class="nav__item">
+                    <a href="projetos.html" class="nav__link">Projetos</a>
+                </li>
+                <li class="nav__item">
+                    <a href="cadastro.html" class="nav__link nav__link--active">Cadastro</a>
+                </li>
+            </ul>
+            <button class="nav__toggle" aria-label="Menu">
+                <span class="nav__hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main">
+        <!-- Seção Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-hero__title">Cadastre-se</h1>
+                <p class="page-hero__description">
+                    Faça parte da nossa equipe de voluntários e ajude a transformar vidas através de ações solidárias.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção Formulário -->
+        <section class="registration">
+            <div class="container">
+                <div class="registration__content">
+                    <div class="registration__info">
+                        <h2>Por que ser um Voluntário?</h2>
+                        <ul class="benefits__list">
+                            <li>Faça a diferença na vida de pessoas</li>
+                            <li>Desenvolva novas habilidades</li>
+                            <li>Conheça pessoas incríveis</li>
+                            <li>Ganhe experiência profissional</li>
+                            <li>Receba certificado de participação</li>
+                        </ul>
+                        <div class="registration__image">
+                            <img src="assets/images/registration-image.jpg" alt="Voluntários da ONG Esperança" class="registration__img">
+                        </div>
+                    </div>
+                    
+                    <div class="registration__form">
+                        <h2>Formulário de Cadastro</h2>
+                        <form id="registrationForm" class="form" action="#" method="post" novalidate>
+                            <!-- Dados Pessoais -->
+                            <fieldset class="form__fieldset">
+                                <legend class="form__legend">Dados Pessoais</legend>
+                                
+                                <div class="form__group">
+                                    <label for="fullName" class="form__label">Nome Completo *</label>
+                                    <input type="text" id="fullName" name="fullName" class="form__input" required 
+                                           minlength="2" maxlength="100" placeholder="Digite seu nome completo">
+                                    <span class="form__error" id="fullName-error"></span>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="email" class="form__label">E-mail *</label>
+                                    <input type="email" id="email" name="email" class="form__input" required 
+                                           placeholder="seu@email.com">
+                                    <span class="form__error" id="email-error"></span>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="cpf" class="form__label">CPF *</label>
+                                    <input type="text" id="cpf" name="cpf" class="form__input" required 
+                                           maxlength="14" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                                    <span class="form__error" id="cpf-error"></span>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="phone" class="form__label">Telefone *</label>
+                                    <input type="tel" id="phone" name="phone" class="form__input" required 
+                                           maxlength="15" placeholder="(00) 00000-0000" pattern="\(\d{2}\)\s\d{4,5}-\d{4}">
+                                    <span class="form__error" id="phone-error"></span>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="birthDate" class="form__label">Data de Nascimento *</label>
+                                    <input type="date" id="birthDate" name="birthDate" class="form__input" required 
+                                           max="2010-12-31" min="1920-01-01">
+                                    <span class="form__error" id="birthDate-error"></span>
+                                </div>
+                            </fieldset>
+
+                            <!-- Endereço -->
+                            <fieldset class="form__fieldset">
+                                <legend class="form__legend">Endereço</legend>
+                                
+                                <div class="form__group">
+                                    <label for="cep" class="form__label">CEP *</label>
+                                    <input type="text" id="cep" name="cep" class="form__input" required 
+                                           maxlength="9" placeholder="00000-000" pattern="\d{5}-\d{3}">
+                                    <span class="form__error" id="cep-error"></span>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="address" class="form__label">Endereço *</label>
+                                    <input type="text" id="address" name="address" class="form__input" required 
+                                           minlength="5" maxlength="200" placeholder="Rua, Avenida, etc.">
+                                    <span class="form__error" id="address-error"></span>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__group form__group--half">
+                                        <label for="city" class="form__label">Cidade *</label>
+                                        <input type="text" id="city" name="city" class="form__input" required 
+                                               minlength="2" maxlength="100" placeholder="Sua cidade">
+                                        <span class="form__error" id="city-error"></span>
+                                    </div>
+                                    
+                                    <div class="form__group form__group--half">
+                                        <label for="state" class="form__label">Estado *</label>
+                                        <select id="state" name="state" class="form__select" required>
+                                            <option value="">Selecione seu estado</option>
+                                            <option value="AC">Acre</option>
+                                            <option value="AL">Alagoas</option>
+                                            <option value="AP">Amapá</option>
+                                            <option value="AM">Amazonas</option>
+                                            <option value="BA">Bahia</option>
+                                            <option value="CE">Ceará</option>
+                                            <option value="DF">Distrito Federal</option>
+                                            <option value="ES">Espírito Santo</option>
+                                            <option value="GO">Goiás</option>
+                                            <option value="MA">Maranhão</option>
+                                            <option value="MT">Mato Grosso</option>
+                                            <option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MG">Minas Gerais</option>
+                                            <option value="PA">Pará</option>
+                                            <option value="PB">Paraíba</option>
+                                            <option value="PR">Paraná</option>
+                                            <option value="PE">Pernambuco</option>
+                                            <option value="PI">Piauí</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="RN">Rio Grande do Norte</option>
+                                            <option value="RS">Rio Grande do Sul</option>
+                                            <option value="RO">Rondônia</option>
+                                            <option value="RR">Roraima</option>
+                                            <option value="SC">Santa Catarina</option>
+                                            <option value="SP">São Paulo</option>
+                                            <option value="SE">Sergipe</option>
+                                            <option value="TO">Tocantins</option>
+                                        </select>
+                                        <span class="form__error" id="state-error"></span>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Informações de Voluntariado -->
+                            <fieldset class="form__fieldset">
+                                <legend class="form__legend">Informações de Voluntariado</legend>
+                                
+                                <div class="form__group">
+                                    <label for="availability" class="form__label">Disponibilidade *</label>
+                                    <select id="availability" name="availability" class="form__select" required>
+                                        <option value="">Selecione sua disponibilidade</option>
+                                        <option value="manha">Manhã (8h às 12h)</option>
+                                        <option value="tarde">Tarde (13h às 17h)</option>
+                                        <option value="noite">Noite (18h às 22h)</option>
+                                        <option value="finais">Finais de semana</option>
+                                        <option value="flexivel">Flexível</option>
+                                    </select>
+                                    <span class="form__error" id="availability-error"></span>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="interests" class="form__label">Áreas de Interesse *</label>
+                                    <div class="form__checkbox-group">
+                                        <label class="form__checkbox-label">
+                                            <input type="checkbox" name="interests" value="educacao" class="form__checkbox">
+                                            <span class="form__checkbox-text">Educação</span>
+                                        </label>
+                                        <label class="form__checkbox-label">
+                                            <input type="checkbox" name="interests" value="assistencia" class="form__checkbox">
+                                            <span class="form__checkbox-text">Assistência Social</span>
+                                        </label>
+                                        <label class="form__checkbox-label">
+                                            <input type="checkbox" name="interests" value="capacitacao" class="form__checkbox">
+                                            <span class="form__checkbox-text">Capacitação Profissional</span>
+                                        </label>
+                                        <label class="form__checkbox-label">
+                                            <input type="checkbox" name="interests" value="idosos" class="form__checkbox">
+                                            <span class="form__checkbox-text">Cuidado com Idosos</span>
+                                        </label>
+                                        <label class="form__checkbox-label">
+                                            <input type="checkbox" name="interests" value="administrativo" class="form__checkbox">
+                                            <span class="form__checkbox-text">Administrativo</span>
+                                        </label>
+                                    </div>
+                                    <span class="form__error" id="interests-error"></span>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="experience" class="form__label">Experiência Anterior</label>
+                                    <textarea id="experience" name="experience" class="form__textarea" 
+                                              rows="4" placeholder="Conte-nos sobre sua experiência anterior com voluntariado ou trabalho social (opcional)"></textarea>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="motivation" class="form__label">Motivação *</label>
+                                    <textarea id="motivation" name="motivation" class="form__textarea" 
+                                              rows="4" required minlength="20" maxlength="500" 
+                                              placeholder="Por que você quer ser um voluntário da ONG Esperança?"></textarea>
+                                    <span class="form__error" id="motivation-error"></span>
+                                </div>
+                            </fieldset>
+
+                            <!-- Termos e Condições -->
+                            <fieldset class="form__fieldset">
+                                <legend class="form__legend">Termos e Condições</legend>
+                                
+                                <div class="form__group">
+                                    <label class="form__checkbox-label form__checkbox-label--full">
+                                        <input type="checkbox" id="terms" name="terms" class="form__checkbox" required>
+                                        <span class="form__checkbox-text">
+                                            Li e aceito os <a href="#" class="form__link">termos de uso</a> e 
+                                            <a href="#" class="form__link">política de privacidade</a> *
+                                        </span>
+                                    </label>
+                                    <span class="form__error" id="terms-error"></span>
+                                </div>
+
+                                <div class="form__group">
+                                    <label class="form__checkbox-label form__checkbox-label--full">
+                                        <input type="checkbox" id="newsletter" name="newsletter" class="form__checkbox">
+                                        <span class="form__checkbox-text">
+                                            Desejo receber informações sobre projetos e atividades da ONG por e-mail
+                                        </span>
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Botões -->
+                            <div class="form__actions">
+                                <button type="button" id="clearForm" class="btn btn--secondary">Limpar Formulário</button>
+                                <button type="submit" class="btn btn--primary">Enviar Cadastro</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Próximos Passos -->
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section__title">Próximos Passos</h2>
+                <div class="steps__grid">
+                    <div class="step__item">
+                        <div class="step__number">1</div>
+                        <h3>Envio do Formulário</h3>
+                        <p>Preencha e envie o formulário de cadastro</p>
+                    </div>
+                    <div class="step__item">
+                        <div class="step__number">2</div>
+                        <h3>Análise do Perfil</h3>
+                        <p>Nossa equipe analisará seu perfil e interesses</p>
+                    </div>
+                    <div class="step__item">
+                        <div class="step__number">3</div>
+                        <h3>Entrevista</h3>
+                        <p>Agendaremos uma conversa para conhecer você melhor</p>
+                    </div>
+                    <div class="step__item">
+                        <div class="step__number">4</div>
+                        <h3>Treinamento</h3>
+                        <p>Participação no treinamento inicial de voluntários</p>
+                    </div>
+                    <div class="step__item">
+                        <div class="step__number">5</div>
+                        <h3>Início das Atividades</h3>
+                        <p>Comece a fazer a diferença na vida das pessoas!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>ONG Esperança</h3>
+                    <p>Transformando vidas através de projetos sociais, voluntariado e doações.</p>
+                    <div class="social__links">
+                        <a href="#" class="social__link" aria-label="Facebook">Facebook</a>
+                        <a href="#" class="social__link" aria-label="Instagram">Instagram</a>
+                        <a href="#" class="social__link" aria-label="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3>Contato</h3>
+                    <p>Rua da Esperança, 456 - Vila Nova</p>
+                    <p>São Paulo - SP, 01234-567</p>
+                    <p>(11) 98765-4321</p>
+                    <p>contato@ongesperanca.org.br</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 ONG Esperança. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
