@@ -1,8 +1,4 @@
-// Main JavaScript file for ONG Unifran website
-
-// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
     initNavigation();
     initFormValidation();
     initMasks();
@@ -10,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initDonationForm();
 });
 
-// Navigation functionality
 function initNavigation() {
     const navToggle = document.querySelector('.nav__toggle');
     const navMenu = document.querySelector('.nav__menu');
@@ -21,7 +16,6 @@ function initNavigation() {
             navToggle.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
         const navLinks = document.querySelectorAll('.nav__link');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -30,7 +24,6 @@ function initNavigation() {
             });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -40,12 +33,10 @@ function initNavigation() {
     }
 }
 
-// Form validation
 function initFormValidation() {
     const form = document.getElementById('registrationForm');
     if (!form) return;
 
-    // Real-time validation
     const inputs = form.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
         input.addEventListener('blur', function() {
@@ -57,20 +48,17 @@ function initFormValidation() {
         });
     });
 
-    // Form submission
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
         if (validateForm()) {
             showSuccessMessage();
-            // Here you would typically send the data to a server
             console.log('Form is valid, ready to submit');
         } else {
             showErrorMessage('Por favor, corrija os erros no formulário.');
         }
     });
 
-    // Clear form button
     const clearBtn = document.getElementById('clearForm');
     if (clearBtn) {
         clearBtn.addEventListener('click', function() {
@@ -82,7 +70,6 @@ function initFormValidation() {
     }
 }
 
-// Field validation
 function validateField(field) {
     const value = field.value.trim();
     const fieldName = field.name;
@@ -90,13 +77,11 @@ function validateField(field) {
     
     clearFieldError(field);
 
-    // Required field validation
     if (field.hasAttribute('required') && !value) {
         showFieldError(field, 'Este campo é obrigatório.');
         return false;
     }
 
-    // Specific validations
     switch (fieldName) {
         case 'fullName':
             if (value && value.length < 2) {
@@ -151,7 +136,6 @@ function validateField(field) {
     return true;
 }
 
-// Form validation
 function validateForm() {
     const form = document.getElementById('registrationForm');
     if (!form) return true;
@@ -165,7 +149,6 @@ function validateForm() {
         }
     });
 
-    // Check interests (at least one required)
     const interests = form.querySelectorAll('input[name="interests"]:checked');
     if (interests.length === 0) {
         const interestsError = document.getElementById('interests-error');
@@ -175,7 +158,6 @@ function validateForm() {
         isValid = false;
     }
 
-    // Check terms acceptance
     const terms = form.querySelector('input[name="terms"]');
     if (terms && !terms.checked) {
         const termsError = document.getElementById('terms-error');
@@ -188,23 +170,17 @@ function validateForm() {
     return isValid;
 }
 
-// Validation helper functions
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
 function isValidCPF(cpf) {
-    // Remove non-numeric characters
     cpf = cpf.replace(/\D/g, '');
     
-    // Check if it has 11 digits
     if (cpf.length !== 11) return false;
     
-    // Check for known invalid CPFs
     if (/^(\d)\1{10}$/.test(cpf)) return false;
-    
-    // Validate CPF algorithm
     let sum = 0;
     for (let i = 0; i < 9; i++) {
         sum += parseInt(cpf.charAt(i)) * (10 - i);
@@ -242,7 +218,6 @@ function isValidCEP(cep) {
     return cepRegex.test(cep);
 }
 
-// Error handling
 function showFieldError(field, message) {
     const errorElement = document.getElementById(field.name + '-error');
     if (errorElement) {
@@ -284,10 +259,8 @@ function showSuccessMessage() {
     const form = document.getElementById('registrationForm');
     form.parentNode.insertBefore(message, form);
     
-    // Scroll to message
     message.scrollIntoView({ behavior: 'smooth' });
     
-    // Remove message after 5 seconds
     setTimeout(() => {
         message.remove();
     }, 5000);
@@ -311,13 +284,10 @@ function showErrorMessage(message) {
     const form = document.getElementById('registrationForm');
     form.parentNode.insertBefore(errorDiv, form);
     
-    // Scroll to error
     errorDiv.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Input masks
 function initMasks() {
-    // CPF mask
     const cpfInput = document.getElementById('cpf');
     if (cpfInput) {
         cpfInput.addEventListener('input', function(e) {
@@ -329,7 +299,6 @@ function initMasks() {
         });
     }
 
-    // Phone mask
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
         phoneInput.addEventListener('input', function(e) {
@@ -340,7 +309,6 @@ function initMasks() {
         });
     }
 
-    // CEP mask
     const cepInput = document.getElementById('cep');
     if (cepInput) {
         cepInput.addEventListener('input', function(e) {
@@ -351,7 +319,6 @@ function initMasks() {
     }
 }
 
-// Donation form functionality
 function initDonationForm() {
     const amountSelect = document.getElementById('amount');
     const customAmountDiv = document.getElementById('custom-amount');
@@ -370,7 +337,6 @@ function initDonationForm() {
         });
     }
 
-    // Donation form submission
     const donationForm = document.querySelector('.donation__form');
     if (donationForm) {
         donationForm.addEventListener('submit', function(e) {
@@ -384,7 +350,6 @@ function initDonationForm() {
                 return;
             }
             
-            // Simulate donation process
             showDonationSuccess(amount);
         });
     }
@@ -404,19 +369,15 @@ function showDonationSuccess(amount) {
     const form = document.querySelector('.donation__form');
     form.parentNode.insertBefore(message, form);
     
-    // Scroll to message
     message.scrollIntoView({ behavior: 'smooth' });
     
-    // Simulate redirect after 3 seconds
     setTimeout(() => {
         alert('Em um sistema real, você seria redirecionado para o gateway de pagamento.');
         message.remove();
     }, 3000);
 }
 
-// Animations and scroll effects
 function initAnimations() {
-    // Smooth scrolling for anchor links
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -433,7 +394,6 @@ function initAnimations() {
         });
     });
 
-    // Intersection Observer for animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -448,7 +408,6 @@ function initAnimations() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
     const animatedElements = document.querySelectorAll('.stat__item, .project__card, .step__item, .impact__item');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -458,7 +417,6 @@ function initAnimations() {
     });
 }
 
-// Utility functions
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -471,9 +429,7 @@ function debounce(func, wait) {
     };
 }
 
-// Accessibility improvements
 function initAccessibility() {
-    // Skip to main content link
     const skipLink = document.createElement('a');
     skipLink.href = '#main';
     skipLink.textContent = 'Pular para o conteúdo principal';
@@ -500,17 +456,14 @@ function initAccessibility() {
     
     document.body.insertBefore(skipLink, document.body.firstChild);
 
-    // Add main id to main element
     const main = document.querySelector('.main');
     if (main && !main.id) {
         main.id = 'main';
     }
 }
 
-// Initialize accessibility features
 document.addEventListener('DOMContentLoaded', initAccessibility);
 
-// Export functions for testing (if needed)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         isValidEmail,

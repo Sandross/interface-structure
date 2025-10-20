@@ -27,7 +27,6 @@ front-end-esperanca/
 ├── index.html              # Página inicial
 ├── projetos.html           # Página de projetos
 ├── cadastro.html           # Página de cadastro
-├── assets/
 │   ├── css/
 │   │   └── style.css       # Estilos principais
 │   ├── js/
